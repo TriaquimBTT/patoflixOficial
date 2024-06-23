@@ -1,0 +1,118 @@
+{
+  "categorias": [
+    {
+      "id": 6,
+      "titulo": "SeDUCKtive",
+      "cor": "#ffce00",
+      "link_extra": {
+        "text": "Wrinkle duck",
+        "url": "https://www.youtube.com/@wrinkletheduck"
+      }
+    },
+    {
+      "id": 5,
+      "titulo": "Games",
+      "cor": "#6bd1ff",
+      "link_extra": {
+        "text": "by Gustavo Triaquim",
+        "url": "https://portfolio-ten-omega-51.vercel.app/"
+      }
+    },
+    {
+      "id": 4,
+      "titulo": "Movies",
+      "cor": "orange",
+      "link_extra": {
+        "text": "watch here",
+        "url": "https://www.filmelier.com/br/filmes-gratis-completos"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": 50,
+      "categoriaId": 6,
+      "titulo": "I took my duck to petsmart",
+      "description": "SeDUCKtive",
+      "url": "https://www.youtube.com/watch?v=owZiOi3KD58"
+    },
+    {
+      "id": 51,
+      "categoriaId": 6,
+      "titulo": "I took my duck to the clown motel",
+      "url": "https://www.youtube.com/watch?v=VBmC8WcOceE"
+    },
+    {
+      "id": 17,
+      "categoriaId": 4,
+      "titulo": "Howard, the duck",
+      "url": "https://www.youtube.com/watch?v=yeU4UlDWfKI"
+    },
+    {
+      "id": 18,
+      "categoriaId": 4,
+      "titulo": "Migration",
+      "url": "https://www.youtube.com/watch?v=cQfo0HJhCnE"
+    },
+    {
+      "id": 19,
+      "categoriaId": 4,
+      "titulo": "The million dollar duck",
+      "url": "https://video.disney.com/watch/the-million-dollar-duck-trailer-4beb46d089341207ce46f149"
+    },
+    {
+      "id": 20,
+      "categoriaId": 4,
+      "titulo": "Duck duck goose",
+      "url": "https://www.youtube.com/watch?v=34ClfQttSLA"
+    },
+    {
+      "id": 21,
+      "categoriaId": 5,
+      "titulo": "Flappy Duck",
+      "url": "/"
+    },
+    {
+      "id": 22,
+      "categoriaId": 5,
+      "titulo": "Space duck",
+      "url": "/"
+    },
+    {
+      "id": 23,
+      "categoriaId": 5,
+      "titulo": "Rock paper sisors duck",
+      "url": "/"
+    },
+    {
+      "id": 24,
+      "categoriaId": 5,
+      "titulo": "Musician duck",
+      "url": "/"
+    },
+    {
+      "titulo": "I took my duck to the church",
+      "url": "https://youtu.be/517jCLkeLcE?si=zzGxCFsUb_Y0LT4t",
+      "categoriaId": 6,
+      "id": 52
+    },
+    {
+      "titulo": "I took my duck to the chinatown",
+      "url": "https://youtu.be/GohQlcE7SmA?si=X7Frj7iARVu_wwQh",
+      "categoriaId": 6,
+      "id": 53
+    },
+    {
+      "titulo": "I took my duck to eat Subway on the subway",
+      "url": "https://youtu.be/9_2ECRyz_rk?si=ezZ8FnC1hmRH_A-X",
+      "categoriaId": 6,
+      "id": 54
+    },
+    {
+      "titulo": "I took my duck to the aquarium",
+      "url": "https://youtu.be/FwpYh4uVe5g?si=BgO1w29433pdCzVM",
+      "categoriaId": 6,
+      "id": 55
+    }
+  ]
+}
