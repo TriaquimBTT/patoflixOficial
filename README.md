@@ -1,6 +1,3 @@
-# Create the README.md file with the provided content
-
-readme_content = """
 # Patoflix
 
 Patoflix is a React-based web application for watching and publishing videos, movies, and games about ducks. This project was developed as part of the React course by Alura.
