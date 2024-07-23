@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
-// import dadosIniciais from '../../data/dados_iniciais.json';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import PageDefault from '../../components/PageDefault';
@@ -8,51 +7,63 @@ import categoriasRepository from '../../repositories/categorias';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // http://localhost:8080/categorias?_embed=videos
+    // Faz a requisição para a API
     categoriasRepository.getAllWithVideos()
       .then((categoriasComVideos) => {
-        console.log(categoriasComVideos[0].videos[0]);
-        setDadosIniciais(categoriasComVideos);
+        if (categoriasComVideos && categoriasComVideos.length > 0) {
+          console.log('Categorias com vídeos:', categoriasComVideos);
+          setDadosIniciais(categoriasComVideos);
+        } else {
+          console.log('Nenhuma categoria com vídeos encontrada.');
+        }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.error('Erro ao carregar categorias:', err.message);
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        Erro ao carregar dados:
+        {error}
+      </div>
+    );
+  }
+
   return (
     <PageDefault paddingAll={0}>
-      {/* {dadosIniciais.length === 0 && (<div>Loading...</div>)} */}
-
       {dadosIniciais.length > 0 && (
-        <div>
+        <>
           <BannerMain
-            videoTitle={dadosIniciais[0].videos[0].titulo}
-            url={dadosIniciais[0].videos[0].url}
-            videoDescription={dadosIniciais[0].videos[0].description}
+            videoTitle={dadosIniciais[0].videos[0].titulo || 'Título não encontrado'}
+            url={dadosIniciais[0].videos[0].url || ''}
+            videoDescription={dadosIniciais[0].videos[0].description || 'Descrição não encontrada'}
           />
           <Carousel
             ignoreFirstVideo
             category={dadosIniciais[0]}
           />
 
-          <Carousel
-            category={dadosIniciais[1]}
-          />
-
-          <Carousel
-            category={dadosIniciais[2]}
-          />
-
-          <Carousel
-            category={dadosIniciais[3]}
-          />
-
-          <Carousel
-            category={dadosIniciais[4]}
-          />
-        </div>
+          {dadosIniciais.slice(1).map((categoria, index) => (
+            <Carousel
+              key={categoria.id || index}
+              category={categoria}
+            />
+          ))}
+        </>
       )}
     </PageDefault>
   );
