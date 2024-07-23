@@ -7,7 +7,6 @@ import categoriasRepository from '../../repositories/categorias';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,15 +23,8 @@ function Home() {
       .catch((err) => {
         console.error('Erro ao carregar categorias:', err.message);
         setError(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, []);
-
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
 
   if (error) {
     return (
@@ -45,7 +37,7 @@ function Home() {
 
   return (
     <PageDefault paddingAll={0}>
-      {dadosIniciais.length > 0 && (
+      {dadosIniciais.length > 0 ? (
         <>
           <BannerMain
             videoTitle={dadosIniciais[0].videos[0].titulo || 'Título não encontrado'}
@@ -57,13 +49,15 @@ function Home() {
             category={dadosIniciais[0]}
           />
 
-          {dadosIniciais.slice(1).map((categoria, index) => (
+          {dadosIniciais.slice(1).map((categoria) => (
             <Carousel
-              key={categoria.id || index}
+              key={categoria.id}
               category={categoria}
             />
           ))}
         </>
+      ) : (
+        <div>Nenhum dado disponível</div>
       )}
     </PageDefault>
   );
